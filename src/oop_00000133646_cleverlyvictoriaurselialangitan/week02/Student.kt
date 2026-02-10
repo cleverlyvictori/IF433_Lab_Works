@@ -1,10 +1,11 @@
 package oop_00000133646_cleverlyvictoriaurselialangitan.week02
 
-class Student (
+class Student(
     val name: String,
     val nim: String,
+    var gpa: Double = 0.0,
     var major: String
-){
+) {
     init {
         if (nim.length != 5) {
             println("WARNING: Objek tercipta dengan NIM ($nim) yang tidadk valid!")
