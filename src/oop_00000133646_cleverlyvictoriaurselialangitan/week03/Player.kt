@@ -20,3 +20,17 @@ class Player(val username: String) {
         }
     }
 }
+
+fun main() {
+    val sword = Weapon("Sniper", 300)
+    val player = Player("Rizky")
+    sword.damage = -50
+    sword.damage = 9999
+
+    println("Weapon: ${sword.name}")
+    println("Damage: ${sword.damage}")
+    println("Tier: ${sword.tier}")
+
+    player.addXp(50)
+    player.addXp(60)
+}
