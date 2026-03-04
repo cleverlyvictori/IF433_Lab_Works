@@ -23,7 +23,7 @@ fun main(){
     val manager = Manager("Budi", 10_000_000)
     val developer = Developer("Andi", 8_000_000, "Kotlin")
 
-    manager.work()
+    manager.work() 
     println("Bonus Manager: Rp ${manager.calculateBonus()}")
 
     developer.work()
