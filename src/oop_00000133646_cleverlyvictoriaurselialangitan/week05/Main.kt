@@ -37,4 +37,14 @@ fun main() {
     for (method in methods) {
         method.processPayment(75000.0)
     }
+    println("\n=== SMART CASTING RECOVERY ===")
+    for (method in methods) {
+        method.processPayment(75000.0)
+        if (method is EWallet) {
+            println("Melakukan top up otomatis...")
+            method.topUp(50000.0)
+            method.processPayment(75000.0)
+        }
+        println("--------------------------")
+    }
 }
