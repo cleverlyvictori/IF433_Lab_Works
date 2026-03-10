@@ -19,4 +19,8 @@ fun main() {
 
     processCheckout(method = pay1, amount = 50000.0)
     processCheckout(method = pay2, amount = 150000.0)
+
+    val lamp = SmartLamp("L1", "Ruang Tamu")
+    val speaker = SmartSpeaker("S1", "Google Nest Dapur")
+    val cctv = SmartCCTV("C1", "Ezviz Garasi")
 }
