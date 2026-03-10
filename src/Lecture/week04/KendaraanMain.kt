@@ -1,4 +1,7 @@
-package week4
+package Lecture.week04
+
+import Lecture.week04.Knd_mobil
+import Lecture.week04.Knd_motor
 
 fun main() {
     var mbl = Knd_mobil();
