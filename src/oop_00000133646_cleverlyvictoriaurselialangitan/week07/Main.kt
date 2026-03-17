@@ -37,4 +37,8 @@ fun main() {
     }
 
     println(uiMessage)
+
+    println("\n=== TEST GAME MANAGER ===")
+    GameManager.startGame()
+    GameManager.startGame()
 }
