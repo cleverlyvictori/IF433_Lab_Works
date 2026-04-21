@@ -36,8 +36,8 @@ fun main () {
         println(it)
     }
 
-
     worstPerformersString.forEach {
         println(it)
     }
     println("\nTraded Pairs: $uniquePairs")
+}
