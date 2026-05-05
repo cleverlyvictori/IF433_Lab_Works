@@ -17,7 +17,7 @@ fun main() {
     txRepo.add(Transaction("TX002", 500.0))
     txRepo.add(Transaction("TX003", 750.0))
 
-    //CHECKPOINT 10
+    //CHECKPOINT 20
     println("\n=== DATA TRANSAKSI ===")
     txRepo.getAll().forEach {
         println("ID: ${it.id}, Amount: ${it.amount}")
