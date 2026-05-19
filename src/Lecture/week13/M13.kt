@@ -4,7 +4,28 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
 
+data class siswa(val nama: String, val umur: Int, val ipk: Double);
+fun siswa.toCSV(): String = "$nama, $umur, $ipk";
+
 fun main() {
+    val murid = siswa("budi", 20, 3.8);
+    //println(murid.toCSV());
+    val buatFile = File("src/Lecture/week13/file.csv")
+    buatFile.writeText(murid.toCSV());
+    val dataSiswa = listOf(
+        siswa("udin", 20, 3.4),
+        siswa("coni", 20, 3.1),
+        siswa("jam", 20, 3.3)
+    )
+
+    val fileCSV = File("src/Lecture/week13/file.csv")
+
+    val isiCSV = dataSiswa.joinToString("\n") {
+        it.toCSV()
+    }
+
+    fileCSV.writeText(isiCSV)
+
     println("=== cara baca 1");
     val fileSaya = File("src/Lecture/week13/file.txt")
     val bacaFile = fileSaya.readText()
