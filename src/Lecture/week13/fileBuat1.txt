@@ -1,0 +1,3 @@
+ini contoh baris pertama printWriter
+INI KEDUA printWriter
+INI KEtigaa printWriter
