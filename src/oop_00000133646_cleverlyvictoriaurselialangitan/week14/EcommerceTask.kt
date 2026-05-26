@@ -41,3 +41,41 @@ class EmailNotifier : NotificationService {
         println("Email terkirim: Pesanan $itemName Anda telah dikonfirmasi!")
     }
 }
+
+interface PricingStrategy {
+    val customerType: String
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+    override val customerType: String = "REGULAR"
+    override fun calculate(price: Double): Double = price
+}
+
+class VipPricing : PricingStrategy {
+    override val customerType: String = "VIP"
+    override fun calculate(price: Double): Double = price * 0.90 // Diskon 10%
+}
+
+class SafeOrderProcessor(
+    private val repo: OrderRepository,
+    private val notifier: NotificationService
+) {
+    fun processOrder(itemName: String, basePrice: Double, pricingStrategy: PricingStrategy) {
+        val finalPrice = pricingStrategy.calculate(basePrice)
+        println("Memproses pesanan $itemName seharga $finalPrice")
+        repo.saveOrder(itemName, finalPrice, pricingStrategy.customerType)
+        notifier.sendNotification(itemName)
+    }
+}
+
+fun main() {
+    val csvRepo = CsvOrderRepository()
+    val emailService = EmailNotifier()
+    val orderProcessor = SafeOrderProcessor(csvRepo, emailService)
+    println("=== Eksekusi Pesanan VIP ===")
+    orderProcessor.processOrder("Laptop Gaming", 15000000.0, VipPricing())
+
+    println("\n=== Eksekusi Pesanan Regular ===")
+    orderProcessor.processOrder("Keyboard", 850000.0, RegularPricing())
+}
