@@ -9,6 +9,20 @@ class proses_khs {
         return (uts * 0.3) + (uas * 0.4) + (tugas * 0.3)
     }
 }
+interface jenis_kurikulum {
+    fun hitungNilaiBobot(uts: Double, uas: Double, tugas: Double): Double
+}
+class kur2013: jenis_kurikulum{
+    override fun hitungNilaiBobot (uts: Double, uas: Double, tugas: Double): Double {
+        return 1.0
+    }
+}
+
+class kurMerdeka: jenis_kurikulum{
+    override fun hitungNilaiBobot(uts: Double, uas: Double, tugas: Double): Double {
+        return 1.0
+    }
+}
 class dbMhs {
     fun simpanNAdb(nim: String, nama: String, nilaiAkhir: Double):String{
         return "KRS $nim nama $nama dapat nilai akhir $nilaiAkhir";
