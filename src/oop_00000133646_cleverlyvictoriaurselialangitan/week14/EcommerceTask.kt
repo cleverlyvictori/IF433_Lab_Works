@@ -65,8 +65,7 @@ class SafeOrderProcessor(
         val finalPrice = pricingStrategy.calculate(basePrice)
         println("Memproses pesanan $itemName seharga $finalPrice")
         repo.saveOrder(itemName, finalPrice, pricingStrategy.customerType)
-        notifier.sendNotification(itemName)
-    }
+        notifier.sendNotification(item
 }
 
 fun main() {
