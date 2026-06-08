@@ -65,9 +65,9 @@ class SafeOrderProcessor(
         val finalPrice = pricingStrategy.calculate(basePrice)
         println("Memproses pesanan $itemName seharga $finalPrice")
         repo.saveOrder(itemName, finalPrice, pricingStrategy.customerType)
-        notifier.sendNotification(item
+        notifier.sendNotification(itemName)
+    }
 }
-
 fun main() {
     val csvRepo = CsvOrderRepository()
     val emailService = EmailNotifier()

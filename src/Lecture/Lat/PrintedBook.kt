@@ -1,7 +1,7 @@
 package Lecture.Lat
 
 class PrintedBook(
-    val title:String,
+    title:String,
     itemCode:String,
     dailyPenalty:Double
 ) : LibraryItem (title, itemCode, dailyPenalty) {
